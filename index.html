@@ -1,0 +1,679 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Torganic
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* background-color: #ffffff; */
+             color: #4a4a4a; 
+            /* margin: 0; */
+            padding: 0;
+            background-color: #f7fafc;
+        }
+
+        .header {
+            position: relative;
+            background-color: #ffffff;
+            z-index: 10;
+            /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 16px 0; */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 16px 24px;
+        }
+
+        .container {
+             width: 90%; 
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo .logo_img {
+            height: 40px;
+            width: 40px;
+        }
+
+        .logo .logo_name {
+            margin-left: 8px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #38a169;
+        }
+
+        .nav {
+            display: none;
+        }
+
+        .nav .nav_item {
+            margin-left: 24px;
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .nav .nav_item:hover {
+            color: #2f855a;
+        }
+
+        .icons .nav_icon {
+            margin-left: 16px;
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 1.25rem;
+        }
+
+        .icons .nav_icon:hover {
+            color: #2d3748;
+        }
+
+        .main {
+            background-color: #f7fafc;
+            padding: 48px 0;
+        }
+
+        .herosection {
+            background-color: #319795;
+            border-radius: 8px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .herosection .herosection_h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .herosection .herosection_p {
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        .herosection .herosection_a {
+            background-color: #38a169;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .herosection .herosection_a:hover {
+            background-color: #2f855a;
+        }
+
+        .herosection .herosection_img {
+            margin-top: 32px;
+            border-radius: 8px;
+            max-width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .nav {
+                display: flex;
+            }
+
+            .herosection {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .herosection .herosection_div {
+                flex: 1;
+            }
+
+            .herosection .herosection_img {
+                margin-top: 0;
+                margin-left: 32px;
+            }
+        }
+
+        .main_v2 {
+            max-width: 1200px;
+            margin: 32px auto;
+            padding: 0 24px;
+        }
+
+        .categories {
+            margin-top: 48px;
+            text-align: center;
+        }
+
+        .categories .featured {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: space-between;
+        }
+
+        .category {
+            background-color: #f7fafc;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 24px;
+            width: 48%;
+            display: flex;
+            box-sizing: border-box;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .category .img_food {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 8px;
+            object-fit: cover;
+        }
+
+        .category .food_name {
+            color: #4a4a4a;
+            font-weight: bold;
+        }
+
+        @media (min-width: 640px) {
+            .category {
+                width: 31%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .category {
+                width: 23%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .category {
+                width: 15%;
+            }
+        }
+
+        .pro_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        .pro_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .pro_title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 32px;
+        }
+
+        .pro_nav {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .pro_nav .pro_ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pro_nav .pro_ul .pro_li {
+            margin-right: 32px;
+            cursor: pointer;
+        }
+
+        .pro_nav .pro_ul .pro_li.pro_active {
+            color: #38a169;
+            border-bottom: 2px solid #38a169;
+        }
+
+        .pro_nav .pro_ul .pro_li.pro_inactive {
+            color: #718096;
+        }
+
+        .pro_nav .btn_viewall {
+            background-color: #38a169;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 15px;
+        }
+
+        .product {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            position: relative;
+            width: 18%;
+            box-sizing: border-box;
+        }
+
+        .product .discount {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: #f6ad55;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .product .product_img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 16px;
+        }
+
+        .product .product_name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .product .rating {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 8px;
+        }
+
+        .product .rating .product_star {
+            color: #f6ad55;
+        }
+
+        .product .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 8px;
+        }
+
+        .product .price .original {
+            text-decoration: line-through;
+            color: #a0aec0;
+            margin-left: 8px;
+        }
+
+        .product .buy_button {
+            background-color: #e2e8f0;
+            color: black;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .product {
+                width: 24%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                width: 32%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .product {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img class="logo_img" alt="Torganic logo" height="40"
+                    src="https://storage.googleapis.com/a1aa/image/duC-Og-0ssRMLAyAMoQ0YE47BzhLX5Bdw-ogFOSgiAI.jpg"
+                    width="40" />
+                <span class="logo_name">
+                    Torganic
+                </span>
+            </div>
+            <nav class="nav">
+                <a class="nav_item" href="#">Home</a>
+                <a class="nav_item" href="#">Flash Sale</a>
+                <a class="nav_item" href="#">Blog</a>
+                <a class="nav_item" href="#">Shop</a>
+                <a class="nav_item" href="#">Contact</a>
+            </nav>
+            <div class="icons">
+                <a class="nav_icon" href="#">
+                    <i class="fas fa-heart"></i>
+                </a>
+                <a class="nav_icon" href="/register.html">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a class="nav_icon" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a class="nav_icon" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="herosection">
+                <div>
+                    <h1 class="herosection_h1">
+                        Seamless Shopping For Every Day
+                    </h1>
+                    <p class="herosection_p">
+                        Elevate your shopping experience with competitive prices and convenient services.
+                    </p>
+                    <a class="herosection_a" href="#">
+                        Shop Now
+                    </a>
+                </div>
+                <img class="herosection_img" alt="Smiling delivery person holding a box of groceries" height="300"
+                    src="https://storage.googleapis.com/a1aa/image/wFRvFNK5Zy1zMuC-DQf0VdB-2wv312htYVIHY6seOIk.jpg"
+                    width="400" />
+            </div>
+        </div>
+    </main>
+    <main class="main_v2">
+        <section class="categories">
+            <h2 class="featured">Featured Categories</h2>
+            <div class="grid">
+                <div class="category">
+                    <img class="img_food"
+                        src="https://storage.googleapis.com/a1aa/image/hryl10DDARiR4ISxgTDpVwOjIXulUazsYyES0Y09JJ0.jpg"
+                        alt="Vegetable">
+                    <span class="food_name">Vegetable</span>
+                </div>
+                <div class="category">
+                    <img class="img_food"
+                        src="https://storage.googleapis.com/a1aa/image/6THa_qW51ak1q8jzoAaoB5j2g_r7oi7qivS2FDy4zgQ.jpg"
+                        alt="Snack">
+                    <span class="food_name">Snack</span>
+                </div>
+                <div class="category">
+                    <img class="img_food"
+                        src="https://storage.googleapis.com/a1aa/image/pxG9RHuOzUJHnDbtwv9uKoJbAJrm6uHzcEyMSGeIN6Y.jpg"
+                        alt="Coffee">
+                    <span class="food_name">Coffee</span>
+                </div>
+                <div class="category">
+                    <img class="img_food"
+                        src="https://storage.googleapis.com/a1aa/image/S3xrltag65uatWYLnMNO3SdTsLZuRDmRk9TbY6qu-bM.jpg"
+                        alt="Milk">
+                    <span class="food_name">Milk</span>
+                </div>
+                <div class="category">
+                    <img class="img_food"
+                        src="https://storage.googleapis.com/a1aa/image/qkDiYhsFVqce_kZW1or5i7TBKZHUlNLntyvF6-GiPqo.jpg"
+                        alt="Drink">
+                    <span class="food_name">Drink</span>
+                </div>
+                <div class="category">
+                    <img class="img_food"
+                        src="https://storage.googleapis.com/a1aa/image/RhOWp-9an1TohfdUdA1VeRoRkANjHedzFWezge0Je7Y.jpg"
+                        alt="Meat">
+                    <span class="food_name">Meat</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="pro_container">
+        <div class="pro_header">
+            <h1 class="pro_title">Popular Products</h1>
+            <div class="pro_nav">
+                <ul class="pro_ul">
+                    <li class="pro_li pro_active">All</li>
+                    <li class="pro_li pro_inactive">New arrivals</li>
+                    <li class="pro_li pro_inactive">Features</li>
+                    <li class="pro_li pro_inactive">Best sellers</li>
+                </ul>
+                <button class="btn_viewall">View All</button>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="product" data-category="new">
+                <div class="discount">44%</div>
+                <img class="product_img"
+                    src="https://storage.googleapis.com/a1aa/image/kVu01e0ni4Pqu1sxz5OrtjHnfJn_HZgjiCzdUB0Kt-E.jpg"
+                    alt="Basket of fresh seasonal vegetables">
+                <h2 class="product_name">Fresh Seasonal...</h2>
+                <div class="rating">
+                    <i class="product_star fas fa-star"></i>
+                    <span>5.0 (35 Reviews)</span>
+                </div>
+                <div class="price">
+                    $79.00
+                    <span class="original">$140.00</span>
+                </div>
+                <button class="buy_button">Add To Cart</button>
+            </div>
+
+            <div class="product" data-category="features">
+                <div class="discount">34%</div>
+                <img class="product_img"
+                    src="https://storage.googleapis.com/a1aa/image/73rdDPDbzj8w4r-0aZInTZdum-5f64_LLJsDxAEFBZ0.jpg"
+                    alt="Avocado Bliss">
+                <h2 class="product_name">Avocado Bliss</h2>
+                <div class="rating">
+                    <i class="product_star fas fa-star"></i>
+                    <span>5.0 (35 Reviews)</span>
+                </div>
+                <div class="price">$12.00</div>
+                <button class="buy_button">Add To Cart</button>
+            </div>
+
+            <div class="product">
+                <div class="discount">34%</div>
+                <img class="product_img"
+                    src="https://storage.googleapis.com/a1aa/image/xMFy5SL4QKkqEaoqFO59Y5Fh3ut6govzhT7RX-yp8EE.jpg"
+                    alt="Berry Burst Pack">
+                <h2 class="product_name">Berry Burst Pack</h2>
+                <div class="rating">
+                    <i class="product_star fas fa-star"></i>
+                    <span>5.0 (35 Reviews)</span>
+                </div>
+                <div class="price">
+                    $21.00
+                    <span class="original">$32.00</span>
+                </div>
+                <button class="buy_button">Add To Cart</button>
+            </div>
+
+            <div class="product">
+                <div class="discount">20%</div>
+                <img class="product_img"
+                    src="https://storage.googleapis.com/a1aa/image/ThHsPPw09PCJQKIipKuhEHPPxxfJZp9QIBq82zKCa3s.jpg"
+                    alt="Bloom Delight">
+                <h2 class="product_name">Bloom Delight</h2>
+                <div class="rating">
+                    <i class="product_star fas fa-star"></i>
+                    <span>5.0 (35 Reviews)</span>
+                </div>
+                <div class="price">
+                    $16.00
+                    <span class="original">$20.00</span>
+                </div>
+                <button class="buy_button">Add To Cart</button>
+            </div>
+
+            <div class="product">
+                <div class="discount">44%</div>
+                <img class="product_img"
+                    src="https://storage.googleapis.com/a1aa/image/YeEXMSOLUT9OTwznCMQBUZqulzxdWIh7RQzqlqUaDKY.jpg"
+                    alt="Basket of wholesome vegetables">
+                <h2 class="product_name">Buy Wholesome...</h2>
+                <div class="rating">
+                    <i class="product_star fas fa-star"></i>
+                    <span>5.0 (35 Reviews)</span>
+                </div>
+                <div class="price">
+                    $79.00
+                    <span class="original">$140.00</span>
+                </div>
+                <button class="buy_button">Add To Cart</button>
+            </div>
+
+        </div>
+        <div class="grid">
+            <div class="product" data-category="new">
+                <div class="discount">44%</div>
+                <img class="product_img"
+                    src="https://storage.googleapis.com/a1aa/image/kVu01e0ni4Pqu1sxz5OrtjHnfJn_HZgjiCzdUB0Kt-E.jpg"
+                    alt="Basket of fresh seasonal vegetables">
+                <h2 class="product_name">Fresh Seasonal...</h2>
+                <div class="rating">
+                    <i class="product_star fas fa-star"></i>
+                    <span>5.0 (35 Reviews)</span>
+                </div>
+                <div class="price">
+                    $79.00
+                    <span class="original">$140.00</span>
+                </div>
+                <button class="buy_button">Add To Cart</button>
+            </div>
+
+            <div class="product" data-category="features">
+                <div class="discount">34%</div>
+                <img class="product_img"
+                    src="https://storage.googleapis.com/a1aa/image/73rdDPDbzj8w4r-0aZInTZdum-5f64_LLJsDxAEFBZ0.jpg"
+                    alt="Avocado Bliss">
+                <h2 class="product_name">Avocado Bliss</h2>
+                <div class="rating">
+                    <i class="product_star fas fa-star"></i>
+                    <span>5.0 (35 Reviews)</span>
+                </div>
+                <div class="price">$12.00</div>
+                <button class="buy_button">Add To Cart</button>
+            </div>
+
+            <div class="product">
+                <div class="discount">34%</div>
+                <img class="product_img"
+                    src="https://storage.googleapis.com/a1aa/image/xMFy5SL4QKkqEaoqFO59Y5Fh3ut6govzhT7RX-yp8EE.jpg"
+                    alt="Berry Burst Pack">
+                <h2 class="product_name">Berry Burst Pack</h2>
+                <div class="rating">
+                    <i class="product_star fas fa-star"></i>
+                    <span>5.0 (35 Reviews)</span>
+                </div>
+                <div class="price">
+                    $21.00
+                    <span class="original">$32.00</span>
+                </div>
+                <button class="buy_button">Add To Cart</button>
+            </div>
+
+            <div class="product">
+                <div class="discount">20%</div>
+                <img class="product_img"
+                    src="https://storage.googleapis.com/a1aa/image/ThHsPPw09PCJQKIipKuhEHPPxxfJZp9QIBq82zKCa3s.jpg"
+                    alt="Bloom Delight">
+                <h2 class="product_name">Bloom Delight</h2>
+                <div class="rating">
+                    <i class="product_star fas fa-star"></i>
+                    <span>5.0 (35 Reviews)</span>
+                </div>
+                <div class="price">
+                    $16.00
+                    <span class="original">$20.00</span>
+                </div>
+                <button class="buy_button">Add To Cart</button>
+            </div>
+
+            <div class="product">
+                <div class="discount">44%</div>
+                <img class="product_img"
+                    src="https://storage.googleapis.com/a1aa/image/YeEXMSOLUT9OTwznCMQBUZqulzxdWIh7RQzqlqUaDKY.jpg"
+                    alt="Basket of wholesome vegetables">
+                <h2 class="product_name">Buy Wholesome...</h2>
+                <div class="rating">
+                    <i class="product_star fas fa-star"></i>
+                    <span>5.0 (35 Reviews)</span>
+                </div>
+                <div class="price">
+                    $79.00
+                    <span class="original">$140.00</span>
+                </div>
+                <button class="buy_button">Add To Cart</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const productTabs = document.querySelectorAll(".pro_li");
+        const products = document.querySelectorAll(".product");
+
+        productTabs.forEach(tab => {
+            tab.addEventListener("click", function () {
+                // Xóa class active cũ
+                document.querySelector(".pro_active").classList.remove("pro_active");
+                tab.classList.add("pro_active");
+
+                // Lấy danh mục từ tab
+                const category = tab.innerText.trim().toLowerCase().replace(" ", "-");
+
+                // Lọc sản phẩm
+                products.forEach(product => {
+                    if (category === "all" || product.dataset.category === category) {
+                        product.style.display = "block";
+                    } else {
+                        product.style.display = "none";
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+</html>

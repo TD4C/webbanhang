@@ -1,0 +1,201 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torganic</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #f7fafc;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #ffffff;
+             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+            padding: 16px 24px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            width: 40px;
+        }
+        .logo span {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2f855a;
+            margin-left: 8px;
+        }
+        nav a {
+            color: #4a5568;
+            margin: 0 12px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            color: #2f855a;
+        }
+        .icons a {
+            color: #4a5568;
+            margin: 0 8px;
+            text-decoration: none;
+        }
+        .icons a:hover {
+            color: #2f855a;
+        }
+        main {
+             /* display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);            */
+          display: flex;
+        justify-content: center;
+         align-items: center;
+         height: 80vh;
+        box-sizing: border-box;  
+        }
+        .form-container {
+            background-color: #f0fff4;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .form-container .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .form-container .tabs button {
+            font-weight: 600;
+            padding: 8px 16px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .form-container .tabs .active {
+            color: #2f855a;
+            border-bottom: 2px solid #2f855a;
+        }
+         .label {
+            display: block;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+        .form-container .input {
+            width: 100%;
+            padding: 8px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+        .form-container .input:focus {
+            outline: none;
+            border-color: #2f855a;
+            box-shadow: 0 0 0 2px rgba(47, 133, 90, 0.2);
+        }
+        .form-container .relative {
+            position: relative;
+        }
+        .form-container .relative i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+        }
+        .button{
+            width: 100%;
+            padding: 13px 16px;
+            border: 1px solid #e2e8f0;
+            background-color: #178a51;
+            color: #fff;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        .checkbox-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: #4b5563;
+            display: flex;
+           
+        }
+       .tick{
+        display: flex;
+            align-items: center;
+            color: #4b5563;
+            justify-content: space-between;
+            align-items: center;
+        
+       }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="https://placehold.co/40x40" alt="Torganic logo">
+            <span>Torganic</span>
+        </div>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="#">Flash Sale</a>
+            <a href="#">Blog</a>
+            <a href="#">Shop</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="icons">
+            <a href="#"><i class="fas fa-user"></i></a>
+            <a href="#"><i class="fas fa-heart"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#"><i class="fas fa-search"></i></a>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="form-container">
+        <div class="tabs">
+            <a href="login.html"> <button class="active">Login</button></a>
+            <a href="register.html"><button class="">Register</button></a>
+        </div>
+        <form>
+            <div class="mb-4">
+                <label class="label" for="full-name">Full name</label>
+                <input class="input" id="full-name" type="text" value="nguyen van a"/>
+            </div>
+            <div class="mb-4">
+                <label class="label" for="email">Email</label>
+                <div class="relative">
+                    <input class="input" id="email" type="email" value="abcl"/>
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </div>
+            <div class="checkbox-container">
+                <label  class="tick">
+                 <input class="" style="margin-right: 5px;" type="checkbox"/>
+                 Remember for 30 days
+                </label>
+                <a href="#">
+                 Forgot Password?
+                </a>
+               </div>
+            <div class="mb-4">             
+             <button class="button" >Create an account</button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>
