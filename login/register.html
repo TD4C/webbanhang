@@ -94,9 +94,12 @@
         .form-container input {
             width: 100%;
             padding: 8px 16px;
-            border: 1px solid #e2e8f0;
+             border: 1px solid #e2e8f0; 
             border-radius: 4px;
-            margin-bottom: 16px;
+             /* margin-top: 16px;  */
+        }
+        .mb-4{
+            margin-top: 16px;
         }
         .form-container input:focus {
             outline: none;
@@ -122,6 +125,52 @@
             border-radius: 4px;
             margin-top: 5px;
         }
+        .red {
+            
+    border: 2px solid rgb(189, 21, 21) !important;
+    border-radius: 3px;
+}
+.green {
+    
+    border: 2px solid rgb(18, 129, 18) !important;
+    border-radius: 3px;
+}
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Điều chỉnh lại icon lỗi để không bị lệch */
+.error-icon {
+    position: absolute;
+    right: 10px; /* Đặt vị trí icon gần mép input */
+    top: 50%; /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%);
+    color: #e53e3e; /* Màu đỏ cảnh báo */
+    font-size: 16px;
+    display: none; /* Ẩn mặc định, chỉ hiển thị khi có lỗi */
+}
+
+/* Điều chỉnh input để icon không bị chồng lên */
+input {
+    width: 100%;
+    padding: 8px 16px;
+    padding-right: 35px; /* Tạo khoảng trống để icon không che nội dung */
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+}
+.div_error {
+    color: #e53e3e;
+    font-size: 12px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Tạo khoảng cách giữa icon và text lỗi */
+}
+
+ 
     </style>
 </head>
 <body>
@@ -155,32 +204,49 @@
         <form>
             <div class="mb-4">
                 <label for="full-name">Full name</label>
-                <input id="full-name" type="text" value="nguyen van a"/>
+                <div class="input-container">
+                    <input id="full-name" type="text" value="nguyen van a"/>
+                </div>
+                <div class="div_error"></div>
             </div>
             <div class="mb-4">
                 <label for="email">Email</label>
-                <div class="relative">
-                    <input id="email" type="email" value="abcl"/>
-                    <i class="fas fa-envelope"></i>
+                <div class="input-container">
+                    
+                        <input id="email" type="email" placeholder="abc@gmail.com"/>
+                
+                    <!-- <i class="fas fa-envelope"></i>  -->
+                    
                 </div>
+                <div class="div_error"></div>
             </div>
             <div class="mb-4">
                 <label for="phone">Phone</label>
-                <input id="phone" placeholder="Enter Your Number" type="text"/>
+                <div class="input-container">
+                    <input id="phone" placeholder="Enter Your Number" type="text"/>
+                </div>
+                <div class="div_error"></div>
             </div>
             <div class="mb-4">
-                <label for="Password">Password</label>
-                <input id="phone" placeholder="Enter Your Password" type="password"/>
+                <label for="password">Password</label>
+              <div class="input-container">
+                <input id="password" placeholder="Enter Your Password" type="password"/>
+              </div>
+                <div class="div_error"></div>
             </div>
             <div class="mb-4">
-                <label for="Confirm Password">Confirm Password</label>
-                <input id="phone" placeholder="Confirm Password" type="password"/>
+                <label for="confirm-password">Confirm Password</label>
+                <div class="input-container">
+                    <input id="confirm-password" placeholder="Confirm Password" type="password"/>
+                </div>
+                <div class="div_error"></div>
             </div>
             <div class="mb-4">              
-             <button class="button" >Create an account</button>
+             <button class="button" type="submit">Create an account</button>
             </div>
         </form>
     </div>
 </main>
 </body>
+<script src="/login/register.js"></script>
 </html>

@@ -1,0 +1,383 @@
+body {
+    font-family: 'Inter', sans-serif;
+    /* background-color: #ffffff; */
+     color: #4a4a4a; 
+    /* margin: 0; */
+    padding: 0;
+    background-color: #f7fafc;
+}
+
+.header {
+    position: relative;
+    background-color: #ffffff;
+    z-index: 10;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px 0; */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 16px 24px;
+}
+
+.container {
+     width: 90%; 
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo .logo_img {
+    height: 40px;
+    width: 40px;
+}
+
+.logo .logo_name {
+    margin-left: 8px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #38a169;
+}
+
+.nav {
+    display: none;
+}
+
+.nav .nav_item {
+    margin-left: 24px;
+    color: #4a4a4a;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.nav .nav_item:hover {
+    color: #2f855a;
+}
+
+.icons .nav_icon {
+    margin-left: 16px;
+    color: #4a4a4a;
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+
+.icons .nav_icon:hover {
+    color: #2d3748;
+}
+
+.main {
+    background-color: #f7fafc;
+    padding: 48px 0;
+}
+
+.herosection {
+    background-color: #319795;
+    border-radius: 8px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.herosection .herosection_h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.herosection .herosection_p {
+    color: #ffffff;
+    margin-bottom: 24px;
+}
+
+.herosection .herosection_a {
+    background-color: #38a169;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.herosection .herosection_a:hover {
+    background-color: #2f855a;
+}
+
+.herosection .herosection_img {
+    margin-top: 32px;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .nav {
+        display: flex;
+    }
+
+    .herosection {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .herosection .herosection_div {
+        flex: 1;
+    }
+
+    .herosection .herosection_img {
+        margin-top: 0;
+        margin-left: 32px;
+    }
+}
+
+.main_v2 {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 24px;
+}
+
+.categories {
+    margin-top: 48px;
+    text-align: center;
+}
+
+.categories .featured {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+}
+
+.category {
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 24px;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category .img_food {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 8px;
+    object-fit: cover;
+}
+
+.category .food_name {
+    color: #4a4a4a;
+    font-weight: bold;
+}
+
+@media (min-width: 640px) {
+    .category {
+        width: 31%;
+    }
+}
+
+@media (min-width: 768px) {
+    .category {
+        width: 23%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .category {
+        width: 15%;
+    }
+}
+
+.pro_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.pro_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.pro_title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 32px;
+}
+
+.pro_nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.pro_nav .pro_ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pro_nav .pro_ul .pro_li {
+    margin-right: 32px;
+    cursor: pointer;
+}
+
+.pro_nav .pro_ul .pro_li.pro_active {
+    color: #38a169;
+    border-bottom: 2px solid #38a169;
+}
+
+.pro_nav .pro_ul .pro_li.pro_inactive {
+    color: #718096;
+}
+
+.pro_nav .btn_viewall {
+    background-color: #38a169;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 15px;
+}
+
+.product {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 15px;
+    position: relative;
+    width: 18%;
+    box-sizing: border-box;
+}
+
+.product .discount {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: #f6ad55;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.product .product_img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 16px;
+}
+
+.product .product_name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.product .rating {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 8px;
+}
+
+.product .rating .product_star {
+    color: #f6ad55;
+}
+
+.product .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 8px;
+}
+
+.product .price .original {
+    text-decoration: line-through;
+    color: #a0aec0;
+    margin-left: 8px;
+}
+
+.product .buy_button {
+    background-color: #e2e8f0;
+    color: black;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .product {
+        width: 24%;
+    }
+}
+
+@media (max-width: 768px) {
+    .product {
+        width: 32%;
+    }
+}
+
+@media (max-width: 640px) {
+    .product {
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .product {
+        width: 100%;
+      
+    }
+}
+.scroll-top {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background-color: #38a169;
+color: white;
+border: none;
+border-radius: 50%;
+width: 50px;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 24px;
+cursor: pointer;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: opacity 0.3s, visibility 0.3s;
+opacity: 0;
+visibility: hidden;
+}
+
+.scroll-top.show {
+opacity: 1;
+visibility: visible;
+}
