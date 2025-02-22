@@ -64,7 +64,7 @@
         }
         .form-container {
             background-color: #f0fff4;
-            padding: 32px;
+            padding: 30px 32px 32px 32px;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -73,7 +73,7 @@
         .form-container .tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 23px;
         }
         .form-container .tabs button {
             font-weight: 600;
@@ -99,7 +99,7 @@
              /* margin-top: 16px;  */
         }
         .mb-4{
-            margin-top: 16px;
+            margin-top: 14px;
         }
         .form-container input:focus {
             outline: none;
@@ -154,7 +154,7 @@
 }
 
 /* Điều chỉnh input để icon không bị chồng lên */
-input {
+.input {
     width: 100%;
     padding: 8px 16px;
     padding-right: 35px; /* Tạo khoảng trống để icon không che nội dung */
@@ -205,7 +205,7 @@ input {
             <div class="mb-4">
                 <label for="full-name">Full name</label>
                 <div class="input-container">
-                    <input id="full-name" type="text" value="nguyen van a"/>
+                    <input class="input" id="full-name" type="text" placeholder="Huỳnh Thành Đạt"/>
                 </div>
                 <div class="div_error"></div>
             </div>
@@ -213,7 +213,7 @@ input {
                 <label for="email">Email</label>
                 <div class="input-container">
                     
-                        <input id="email" type="email" placeholder="abc@gmail.com"/>
+                        <input class="input" id="email" type="email" placeholder="abc@gmail.com"/>
                 
                     <!-- <i class="fas fa-envelope"></i>  -->
                     
@@ -223,21 +223,21 @@ input {
             <div class="mb-4">
                 <label for="phone">Phone</label>
                 <div class="input-container">
-                    <input id="phone" placeholder="Enter Your Number" type="text"/>
+                    <input class="input" id="phone" placeholder="Enter Your Number" type="text"/>
                 </div>
                 <div class="div_error"></div>
             </div>
             <div class="mb-4">
                 <label for="password">Password</label>
               <div class="input-container">
-                <input id="password" placeholder="Enter Your Password" type="password"/>
+                <input class="input" id="password" placeholder="Enter Your Password" type="password"/>
               </div>
                 <div class="div_error"></div>
             </div>
             <div class="mb-4">
                 <label for="confirm-password">Confirm Password</label>
                 <div class="input-container">
-                    <input id="confirm-password" placeholder="Confirm Password" type="password"/>
+                    <input class="input" id="confirm-password" placeholder="Confirm Password" type="password"/>
                 </div>
                 <div class="div_error"></div>
             </div>

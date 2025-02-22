@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
+
 <body>
     <header class="header">
         <div class="container">
@@ -30,18 +31,43 @@
                 <a class="nav_item" href="#">Contact</a>
             </nav>
             <div class="icons">
+                <!-- <a class="nav_icon" href="#"> -->
+
+                <div class="search">
+                    <div class="search__container">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Tìm sản phẩm..." onclick="showContent()">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="hidden-content" id="hiddenContent">
+                            <div class="title">
+                                <i class="fas fa-fire"></i>
+                                <span>TÌM KIẾM NHIỀU NHẤT</span>
+                            </div>
+                            <div class="tags">
+                                <span>Áo sơ mi</span>
+                                <span>Áo khoác</span>
+                                <span>Quần</span>
+                                <span>Váy</span>
+                                <span>Jumpsuit</span>
+                                <span>Đầm</span>
+                                <span>Đồ bộ</span>
+                                <span>Phụ kiện</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- </a> -->
                 <a class="nav_icon" href="#">
                     <i class="fas fa-heart"></i>
                 </a>
                 <a class="nav_icon" href="/login/register.html">
                     <i class="fas fa-user"></i>
                 </a>
-                <a class="nav_icon" href="#">
+                <a class="nav_icon" href="/shoppingCart/cart.html">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                <a class="nav_icon" href="#">
-                    <i class="fas fa-search"></i>
-                </a>
+
             </div>
         </div>
     </header>
@@ -122,7 +148,9 @@
             </div>
         </div>
         <div class="grid">
-            <div class="product" data-category="new">
+            <div class="product" data-category="new" data-id="p1" data-name="Fresh Seasonal" data-price="$79.00"
+                data-original="$140.00" data-discount="44%"
+                data-img="https://storage.googleapis.com/a1aa/image/kVu01e0ni4Pqu1sxz5OrtjHnfJn_HZgjiCzdUB0Kt-E.jpg">
                 <div class="discount">44%</div>
                 <img class="product_img"
                     src="https://storage.googleapis.com/a1aa/image/kVu01e0ni4Pqu1sxz5OrtjHnfJn_HZgjiCzdUB0Kt-E.jpg"
@@ -139,7 +167,9 @@
                 <button class="buy_button">Add To Cart</button>
             </div>
 
-            <div class="product" data-category="features">
+            <div class="product" data-category="features" data-id="p2" data-name="Avocado Bliss" data-price="$12.00"
+                data-original="" data-discount="34%"
+                data-img="https://storage.googleapis.com/a1aa/image/73rdDPDbzj8w4r-0aZInTZdum-5f64_LLJsDxAEFBZ0.jpg">
                 <div class="discount">34%</div>
                 <img class="product_img"
                     src="https://storage.googleapis.com/a1aa/image/73rdDPDbzj8w4r-0aZInTZdum-5f64_LLJsDxAEFBZ0.jpg"
@@ -153,7 +183,9 @@
                 <button class="buy_button">Add To Cart</button>
             </div>
 
-            <div class="product">
+            <div class="product" data-id="p3" data-name="Berry Burst Pack" data-price="$21.00" data-original="$32.00"
+                data-discount="34%"
+                data-img="https://storage.googleapis.com/a1aa/image/xMFy5SL4QKkqEaoqFO59Y5Fh3ut6govzhT7RX-yp8EE.jpg">
                 <div class="discount">34%</div>
                 <img class="product_img"
                     src="https://storage.googleapis.com/a1aa/image/xMFy5SL4QKkqEaoqFO59Y5Fh3ut6govzhT7RX-yp8EE.jpg"
@@ -170,7 +202,9 @@
                 <button class="buy_button">Add To Cart</button>
             </div>
 
-            <div class="product">
+            <div class="product" data-category="new" data-id="p4" data-name="Bloom Delight" data-price="$16.00"
+                data-original="$20.00" data-discount="20%"
+                data-img="https://storage.googleapis.com/a1aa/image/ThHsPPw09PCJQKIipKuhEHPPxxfJZp9QIBq82zKCa3s.jpg">
                 <div class="discount">20%</div>
                 <img class="product_img"
                     src="https://storage.googleapis.com/a1aa/image/ThHsPPw09PCJQKIipKuhEHPPxxfJZp9QIBq82zKCa3s.jpg"
@@ -187,7 +221,9 @@
                 <button class="buy_button">Add To Cart</button>
             </div>
 
-            <div class="product">
+            <div class="product" data-id="p5" data-name="Buy Wholesome" data-price="$79.00" data-original="$140.00"
+                data-discount="44%"
+                data-img="https://storage.googleapis.com/a1aa/image/YeEXMSOLUT9OTwznCMQBUZqulzxdWIh7RQzqlqUaDKY.jpg">
                 <div class="discount">44%</div>
                 <img class="product_img"
                     src="https://storage.googleapis.com/a1aa/image/YeEXMSOLUT9OTwznCMQBUZqulzxdWIh7RQzqlqUaDKY.jpg"
@@ -206,7 +242,7 @@
 
         </div>
         <div class="grid">
-            <div class="product" data-category="new">
+            <div class="product">
                 <div class="discount">44%</div>
                 <img class="product_img"
                     src="https://storage.googleapis.com/a1aa/image/kVu01e0ni4Pqu1sxz5OrtjHnfJn_HZgjiCzdUB0Kt-E.jpg"
@@ -293,8 +329,81 @@
     <button id="scrollToTop" class="scroll-top">
         <i class="fas fa-chevron-up"></i>
     </button>
-    
+
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.querySelector(".search-bar input");
+        const hiddenContent = document.getElementById("hiddenContent");
+
+        searchInput.addEventListener("focus", function () {
+            hiddenContent.style.display = "block";
+            setTimeout(() => {
+                hiddenContent.style.maxHeight = hiddenContent.scrollHeight + "px";
+                hiddenContent.style.opacity = "1";
+            }, 10);
+        });
+
+
+        document.addEventListener("click", function (event) {
+            if (!hiddenContent.contains(event.target) && !searchInput.contains(event.target)) {
+                hiddenContent.style.maxHeight = "0";
+                hiddenContent.style.opacity = "0";
+                setTimeout(() => {
+                    hiddenContent.style.display = "none";
+                }, 300);
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const header = document.querySelector(".header");
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateHeader() {
+            let currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 250) {
+                header.classList.add("header-fixed");
+                header.classList.remove("header-visible");
+            } else {
+                header.classList.add("header-visible");
+                header.classList.remove("header-fixed");
+            }
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+
+        window.addEventListener("scroll", function () {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+    const products = document.querySelectorAll(".product");
+
+    products.forEach(product => {
+        product.addEventListener("click", () => {
+            // Lấy thông tin sản phẩm từ data attributes
+            const id = product.dataset.id;
+            const name = encodeURIComponent(product.dataset.name);
+            const price = encodeURIComponent(product.dataset.price);
+            const original = encodeURIComponent(product.dataset.original);
+            const discount = encodeURIComponent(product.dataset.discount);
+            const img = encodeURIComponent(product.dataset.img);
+            
+            // Tạo URL với các tham số
+            const url = `/product/product.html?id=${id}&name=${name}&price=${price}&original=${original}&discount=${discount}&img=${img}`;
+            
+            // Chuyển hướng tới trang chi tiết sản phẩm
+            window.location.href = url;
+        });
+    });
+});
+
+
+</script>
 <script src="/assets/js/index.js"></script>
 
 </html>

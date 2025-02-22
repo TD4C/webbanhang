@@ -1,28 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-    const fullName = document.getElementById("full-name");
-    const email = document.getElementById("email");
-    const phone = document.getElementById("phone");
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirm-password");
-    const submitButton = document.querySelector(".button");
-
-    const validateEmail = (email) => {
-        var mailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return mailFormat.test(String(email).toLocaleLowerCase());
-    };
+    const registerForm = document.querySelector("form");
+    const fullNameInput = document.getElementById("full-name");
+    const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
+    const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirm-password");
 
     function validateInput(input, condition, errorMessage) {
-        let errorContainer = input.closest(".mb-4"); // Chắc chắn lấy đúng phần chứa lỗi
-let errorElement = errorContainer.querySelector(".div_error");
-let inputContainer = input.closest(".input-container"); // Đảm bảo lấy đúng vị trí
-   
-
-
+        let errorContainer = input.closest(".mb-4");
+        let errorElement = errorContainer.querySelector(".div_error");
+        let inputContainer = input.closest(".input-container");
         let iconElement = errorContainer.querySelector(".error-icon");
-    
+
         if (!errorElement) return;
-    
+
         if (condition) {
             input.classList.remove("red");
             input.classList.add("green");
@@ -32,7 +23,7 @@ let inputContainer = input.closest(".input-container"); // Đảm bảo lấy đ
             input.classList.remove("green");
             input.classList.add("red");
             errorElement.textContent = errorMessage;
-    
+
             if (!iconElement) {
                 iconElement = document.createElement("i");
                 iconElement.classList.add("fas", "fa-exclamation-triangle", "error-icon");
@@ -41,48 +32,107 @@ let inputContainer = input.closest(".input-container"); // Đảm bảo lấy đ
             iconElement.style.display = "block";
         }
     }
-    
-    
- 
-    form.addEventListener("submit", function (event) {
+
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function validatePhone(phone) {
+        const phoneRegex = /^[0-9]{10}$/;
+        return phoneRegex.test(phone);
+    }
+
+    function checkFormValidity() {
+        const fullName = fullNameInput.value.trim();
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const password = passwordInput.value.trim();
+        const confirmPassword = confirmPasswordInput.value.trim();
+
+        let valid = true;
+
+        if (!fullName) {
+            validateInput(fullNameInput, false, "Vui lòng nhập họ tên.");
+            valid = false;
+        }
+
+        if (!email || !validateEmail(email)) {
+            validateInput(emailInput, false, email ? "Email không hợp lệ." : "Vui lòng nhập email.");
+            valid = false;
+        }
+
+        if (!phone || !validatePhone(phone)) {
+            validateInput(phoneInput, false, phone ? "Số điện thoại không hợp lệ." : "Vui lòng nhập số điện thoại.");
+            valid = false;
+        }
+
+        if (!password) {
+            validateInput(passwordInput, false, "Vui lòng nhập mật khẩu.");
+            valid = false;
+        }
+
+        if (!confirmPassword) {
+            validateInput(confirmPasswordInput, false, "Vui lòng nhập lại mật khẩu.");
+            valid = false;
+        } else if (confirmPassword !== password) {
+            validateInput(confirmPasswordInput, false, "Mật khẩu nhập lại không khớp.");
+            valid = false;
+        }
+
+        return valid;
+    }
+
+    fullNameInput.addEventListener("input", () => {
+        validateInput(fullNameInput, fullNameInput.value.trim() !== "", "Vui lòng nhập họ tên.");
+    });
+
+    emailInput.addEventListener("input", () => {
+        const email = emailInput.value.trim();
+        validateInput(emailInput, email !== "" && validateEmail(email), email ? "Email không hợp lệ." : "Vui lòng nhập email.");
+    });
+
+    phoneInput.addEventListener("input", () => {
+        const phone = phoneInput.value.trim();
+        validateInput(phoneInput, phone !== "" && validatePhone(phone), phone ? "Số điện thoại không hợp lệ." : "Vui lòng nhập số điện thoại.");
+    });
+
+    passwordInput.addEventListener("input", () => {
+        const password = passwordInput.value.trim();
+        validateInput(passwordInput, password !== "", "Vui lòng nhập mật khẩu.");
+        validateInput(confirmPasswordInput, confirmPasswordInput.value.trim() === password, "Mật khẩu nhập lại không khớp.");
+    });
+
+    confirmPasswordInput.addEventListener("input", () => {
+        const password = passwordInput.value.trim();
+        const confirmPassword = confirmPasswordInput.value.trim();
+        validateInput(confirmPasswordInput, confirmPassword === password, "Mật khẩu nhập lại không khớp.");
+    });
+
+    registerForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const emailValid = validateEmail(email.value);
-        const phoneValid = phone.value.length >= 10;
-        const passwordValid = password.value.length >= 6;
-        const passwordsMatch = password.value === confirmPassword.value;
+        if (!checkFormValidity()) return;
 
-        validateInput(email, emailValid, "Invalid email format");
-        validateInput(phone, phoneValid, "Phone number must be at least 10 digits");
-        validateInput(password, passwordValid, "Password must be at least 6 characters");
-        validateInput(confirmPassword, passwordsMatch, "Passwords do not match");
+        const fullName = fullNameInput.value.trim();
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const password = passwordInput.value.trim();
 
-       
-        if (emailValid && phoneValid && passwordValid && passwordsMatch) {
-            // Lưu thông tin vào localStorage
-            localStorage.setItem("fullName", fullName.value);
-            localStorage.setItem("email", email.value);
-            localStorage.setItem("phone", phone.value);
-            localStorage.setItem("password", password.value);
-            alert("Registration successful!");
-            form.reset();
+        const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+        const emailExists = storedUsers.some(user => user.email === email);
+
+        if (emailExists) {
+            validateInput(emailInput, false, "Email đã được sử dụng.");
+            return;
         }
-    });
 
-    [email, phone, password, confirmPassword].forEach(input => {
-        input.addEventListener("input", function () {
-            if (input === email) {
-                validateInput(email, validateEmail(email.value), "Invalid email format");
-            } else if (input === phone) {
-                validateInput(phone, phone.value.length >= 10, "Phone number must be at least 10 digits");
-            } else if (input === password) {
-                validateInput(password, password.value.length >= 6, "Password must be at least 6 characters");
-            } else if (input === confirmPassword) {
-                validateInput(confirmPassword, password.value === confirmPassword.value, "Passwords do not match");
-            }
-        });
-    });
-  
+        const newUser = { fullName, email, phone, password };
+        storedUsers.push(newUser);
+        localStorage.setItem("users", JSON.stringify(storedUsers));
 
-  
+        alert("Đăng ký thành công!");
+        registerForm.reset();
+        document.querySelectorAll(".green").forEach(input => input.classList.remove("green"));
+    });
 });

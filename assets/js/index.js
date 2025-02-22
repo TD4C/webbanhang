@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     productTabs.forEach(tab => {
         tab.addEventListener("click", function () {
-            // Xóa class active cũ
+    
             document.querySelector(".pro_active").classList.remove("pro_active");
             tab.classList.add("pro_active");
 
-            // Lấy danh mục từ tab
+      
             const category = tab.innerText.trim().toLowerCase().replace(" ", "-");
 
-            // Lọc sản phẩm
+            
             products.forEach(product => {
                 if (category === "all" || product.dataset.category === category) {
                     product.style.display = "block";

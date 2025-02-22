@@ -11,7 +11,7 @@
         }
         header {
             background-color: #ffffff;
-             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             padding: 16px 24px;
         }
         .container {
@@ -52,19 +52,19 @@
             color: #2f855a;
         }
         main {
-             /* display: flex;
+            /* display: flex;
             justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 80px);            */
-          display: flex;
+            min-height: calc(100vh - 80px); */
+              display: flex;
         justify-content: center;
          align-items: center;
-         height: 80vh;
+         height: 89vh;
         box-sizing: border-box;  
         }
         .form-container {
             background-color: #f0fff4;
-            padding: 32px;
+            padding: 30px 32px 32px 32px;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -73,7 +73,7 @@
         .form-container .tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 23px;
         }
         .form-container .tabs button {
             font-weight: 600;
@@ -86,19 +86,22 @@
             color: #2f855a;
             border-bottom: 2px solid #2f855a;
         }
-         .label {
+        .form-container label {
             display: block;
             color: #4a5568;
             margin-bottom: 8px;
         }
-        .form-container .input {
+        .form-container input {
             width: 100%;
             padding: 8px 16px;
-            border: 1px solid #e2e8f0;
+             border: 1px solid #e2e8f0; 
             border-radius: 4px;
-             /* margin-top: 16px; */
+             /* margin-top: 16px;  */
         }
-        .form-container .input:focus {
+        .mb-4{
+            margin-top: 14px;
+        }
+        .form-container input:focus {
             outline: none;
             border-color: #2f855a;
             box-shadow: 0 0 0 2px rgba(47, 133, 90, 0.2);
@@ -122,25 +125,25 @@
             border-radius: 4px;
             margin-top: 5px;
         }
-        .checkbox-container{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            margin-top: 25px;
-            color: #4b5563;
-            display: flex;
-           
-        }
-       .tick{
-        display: flex;
-            align-items: center;
-            color: #4b5563;
-            justify-content: space-between;
-            align-items: center;
-        
-       }
-       .red {
+   
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Điều chỉnh lại icon lỗi để không bị lệch */
+.error-icon {
+    position: absolute;
+    right: 10px; /* Đặt vị trí icon gần mép input */
+    top: 50%; /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%);
+    color: #e53e3e; /* Màu đỏ cảnh báo */
+    font-size: 16px;
+    display: none; /* Ẩn mặc định, chỉ hiển thị khi có lỗi */
+}
+.red {
             
             border: 2px solid rgb(189, 21, 21) !important;
             border-radius: 3px;
@@ -150,43 +153,24 @@
             border: 2px solid rgb(18, 129, 18) !important;
             border-radius: 3px;
         }
-        .input-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            width: 100%;
-           
-        }
-        .mb-4{
-            margin-top: 16px;
-        }
-        /* Điều chỉnh lại icon lỗi để không bị lệch */
-        .error-icon {
-            position: absolute;
-            right: 10px; /* Đặt vị trí icon gần mép input */
-            top: 50%; /* Căn giữa theo chiều dọc */
-            transform: translateY(-50%);
-            color: #e53e3e; /* Màu đỏ cảnh báo */
-            font-size: 16px;
-            display: none; /* Ẩn mặc định, chỉ hiển thị khi có lỗi */
-        }
-        
-        /* Điều chỉnh input để icon không bị chồng lên */
-        .input {
-            width: 100%;
-            padding: 8px 16px;
-            padding-right: 35px; /* Tạo khoảng trống để icon không che nội dung */
-            border: 1px solid #e2e8f0;
-            border-radius: 4px;
-        }
-        .div_error {
-            color: #e53e3e;
-            font-size: 12px;
-            margin-top: 4px;
-            display: flex;
-            align-items: center;
-            gap: 5px; /* Tạo khoảng cách giữa icon và text lỗi */
-        }
+/* Điều chỉnh input để icon không bị chồng lên */
+.input {
+    width: 100%;
+    padding: 8px 16px;
+    padding-right: 35px; /* Tạo khoảng trống để icon không che nội dung */
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+}
+.div_error {
+    color: #e53e3e;
+    font-size: 12px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Tạo khoảng cách giữa icon và text lỗi */
+}
+
+ 
     </style>
 </head>
 <body>
@@ -214,42 +198,55 @@
 <main>
     <div class="form-container">
         <div class="tabs">
-            <a href="login.html"> <button class="active">Login</button></a>
-            <a href="register.html"><button class="">Register</button></a>
+            <a href="login.html"> <button class="">Login</button></a>
+            <button class="active">Register</button>
         </div>
-         <form>
+        <form>
             <div class="mb-4">
-                <label class="label" for="full-name">Full name</label>
-               <div class="input-container">
-                <input class="input" id="full-name" type="text" placeholder="Huỳnh Thành Đạt"/>
-               </div>
-               <div class="div_error"></div>
-            </div>
-            <div class="mb-4">
-                <label class="label" for="email">Email</label>
+                <label for="full-name">Full name</label>
                 <div class="input-container">
-                    <input class="input" id="email" type="email" />
-                    <!-- <i class="fas fa-envelope"></i> -->
+                    <input class="input" id="full-name" type="text" placeholder="Huỳnh Thành Đạt"/>
                 </div>
                 <div class="div_error"></div>
             </div>
-            <div class="checkbox-container">
-                <label  class="tick">
-                 <input class="" style="margin-right: 5px;" type="checkbox"/>
-                 Remember for 30 days
-                </label>
-                <a href="#">
-                 Forgot Password?
-                </a>
-               </div>
-            <div class="mb-4">             
-             <button class="button" >Create an account</button>
+            <div class="mb-4">
+                <label for="email">Email</label>
+                <div class="input-container">
+                    
+                        <input class="input" id="email" type="email" placeholder="abc@gmail.com"/>
+                
+                    <!-- <i class="fas fa-envelope"></i>  -->
+                    
+                </div>
+                <div class="div_error"></div>
             </div>
-        </form> 
-       
-        
+            <div class="mb-4">
+                <label for="phone">Phone</label>
+                <div class="input-container">
+                    <input class="input" id="phone" placeholder="Enter Your Number" type="text"/>
+                </div>
+                <div class="div_error"></div>
+            </div>
+            <div class="mb-4">
+                <label for="password">Password</label>
+              <div class="input-container">
+                <input class="input" id="password" placeholder="Enter Your Password" type="password"/>
+              </div>
+                <div class="div_error"></div>
+            </div>
+            <div class="mb-4">
+                <label for="confirm-password">Confirm Password</label>
+                <div class="input-container">
+                    <input class="input" id="confirm-password" placeholder="Confirm Password" type="password"/>
+                </div>
+                <div class="div_error"></div>
+            </div>
+            <div class="mb-4">              
+             <button class="button" type="submit">Create an account</button>
+            </div>
+        </form>
     </div>
 </main>
 </body>
-<script src="/login/login.js"></script>
+<script src="/test.js"></script>
 </html>

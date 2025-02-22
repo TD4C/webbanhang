@@ -1,7 +1,7 @@
 body {
     font-family: 'Inter', sans-serif;
     /* background-color: #ffffff; */
-     color: #4a4a4a; 
+    color: #4a4a4a;
     /* margin: 0; */
     padding: 0;
     background-color: #f7fafc;
@@ -12,13 +12,13 @@ body {
     background-color: #ffffff;
     z-index: 10;
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px 0; */
+padding: 16px 0; */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     padding: 16px 24px;
 }
 
 .container {
-     width: 90%; 
+    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -56,6 +56,13 @@ body {
 
 .nav .nav_item:hover {
     color: #2f855a;
+}
+
+.icons {
+    display: flex;
+    width: 40%;
+    align-items: center;
+
 }
 
 .icons .nav_icon {
@@ -353,31 +360,201 @@ body {
 @media (max-width: 480px) {
     .product {
         width: 100%;
-      
+
     }
 }
-.scroll-top {
-position: fixed;
-bottom: 20px;
-right: 20px;
-background-color: #38a169;
-color: white;
-border: none;
-border-radius: 50%;
-width: 50px;
-height: 50px;
+
+/* .search {
 display: flex;
 justify-content: center;
 align-items: center;
-font-size: 24px;
-cursor: pointer;
+height: 100vh;
+background-color: #f3f4f6;
+margin: 0;
+}
+.search__container {
+width: 100%;
+max-width: 400px;
+padding: 16px;
+background-color: white;
+border-radius: 8px;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-transition: opacity 0.3s, visibility 0.3s;
-opacity: 0;
-visibility: hidden;
+}
+.search-bar {
+position: relative;
+}
+.search-bar input {
+width: 100%;
+padding: 8px 16px 8px 40px;
+border: 1px solid #d1d5db;
+border-radius: 4px;
+outline: none;
+}
+.search-bar i {
+position: absolute;
+top: 50%;
+left: 12px;
+transform: translateY(-50%);
+color: #9ca3af;
+}
+.hidden-content {
+display: none;
+margin-top: 16px;
+overflow: hidden;
+max-height: 0;
+transition: max-height 0.5s ease-out;
+}
+.title {
+display: flex;
+align-items: center;
+margin-bottom: 8px;
+}
+.title i {
+color: #6b7280;
+margin-right: 8px;
+}
+.title span {
+font-weight: 600;
+color: #374151;
+}
+.tags {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+.tags span {
+padding: 4px 12px;
+background-color: #e5e7eb;
+border-radius: 4px;
+} */
+.search {
+    /* display: flex;
+    align-items: center;
+    margin-right: 16px; */
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.search__container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.search-bar {
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px 16px 8px 40px;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    outline: none;
+    margin-top: 1px;
+
+}
+
+.search-bar i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #9ca3af;
+
+}
+
+.hidden-content {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    display: none;
+    /* margin: 16px; */
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    border-radius: 6px;
+    opacity: 0;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    border-bottom: #464040 solid 1px;
+}
+
+.title i {
+    color: #6b7280;
+    margin-right: 8px;
+}
+
+.title span {
+    font-weight: 600;
+    color: #374151;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tags span {
+    padding: 4px 12px;
+    background-color: #e5e7eb;
+    border-radius: 4px;
+}
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
+}
+
+.header-visible {
+    transform: translateY(0);
+    pointer-events: all;
+
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #38a169;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s, visibility 0.3s;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .scroll-top.show {
-opacity: 1;
-visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }

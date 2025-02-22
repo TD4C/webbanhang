@@ -1,0 +1,431 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Torganic
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* background-color: #ffffff; */
+            color: #4a4a4a;
+            /* margin: 0; */
+            padding: 0;
+            background-color: #f7fafc;
+            height: 2000px;
+        }
+
+       
+        /* .header {
+            position: relative;
+            background-color: #ffffff;
+            z-index: 10;
+           
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 16px 24px;
+        } */
+            
+        .header {
+    position: relative; /* Trạng thái ban đầu */
+    background-color: #ffffff;
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 16px 24px;
+    transition: transform 0.4s ease-out, top 0.4s ease-out;
+}
+
+.header-fixed {
+    position: fixed; /* Khi cuộn xuống > 250px thì header cố định */
+    top: -80px; /* Ban đầu giấu đi */
+    transform: translateY(80px); /* Trượt xuống */
+    transition: transform 0.4s ease-out;
+}
+
+.header-visible {
+    transform: translateY(0); /* Hiện header ra */
+}
+
+
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo .logo_img {
+            height: 40px;
+            width: 40px;
+        }
+
+        .logo .logo_name {
+            margin-left: 8px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #38a169;
+        }
+
+        .nav {
+            display: none;
+        }
+
+        .nav .nav_item {
+            margin-left: 24px;
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .nav .nav_item:hover {
+            color: #2f855a;
+        }
+
+        .icons {
+             display: flex; 
+            align-items: center;
+            width: 60%;
+            justify-content: flex-end;
+        }
+
+        .icons .nav_icon {
+            margin-left: 16px;
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 1.25rem;
+        }
+
+        .icons .nav_icon:hover {
+            color: #2d3748;
+        }
+
+        .main {
+            background-color: #f7fafc;
+            padding: 48px 0;
+        }
+
+        .herosection {
+            background-color: #319795;
+            border-radius: 8px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .herosection .herosection_h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .herosection .herosection_p {
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        .herosection .herosection_a {
+            background-color: #38a169;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .herosection .herosection_a:hover {
+            background-color: #2f855a;
+        }
+
+        .herosection .herosection_img {
+            margin-top: 32px;
+            border-radius: 8px;
+            max-width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .nav {
+                display: flex;
+            }
+
+            .herosection {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .herosection .herosection_div {
+                flex: 1;
+            }
+
+            .herosection .herosection_img {
+                margin-top: 0;
+                margin-left: 32px;
+            }
+        }
+
+
+
+        .search {
+            flex-grow: 1;
+            /* Giúp ô tìm kiếm co giãn linh hoạt */
+            max-width: 400px;
+            /* Tăng chiều rộng */
+        }
+
+        .search__container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            /* Đảm bảo độ rộng lớn hơn */
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 16px 12px 40px;
+            border: 2px solid #d1d5db;
+            border-radius: 6px;
+            outline: none;
+            font-size: 14px;
+
+        }
+
+
+        .search-bar {
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 16px 10px 40px;
+            /* Tăng padding cho đẹp hơn */
+            border: 2px solid #d1d5db;
+            border-radius: 6px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-bar i {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+      
+        /* Ẩn phần gợi ý ban đầu */
+        .hidden-content {
+            position: absolute;
+            top: calc(100% + 5px);
+            /* Cách ô tìm kiếm 5px */
+            width: calc(100% - 4px);
+             left: 0; 
+          box-sizing: border-box;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            /* Thêm box-shadow */
+            padding: 16px;
+            display: none;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            border-radius: 6px;
+            opacity: 0;
+            z-index: 100;
+        }
+
+        .title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .title i {
+            color: #6b7280;
+            margin-right: 8px;
+        }
+
+        .title span {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tags span {
+            padding: 4px 12px;
+            background-color: #e5e7eb;
+            border-radius: 4px;
+        }
+      
+    
+
+.main-header.visible {
+    transform: translateY(0);
+}
+
+.header-fixed {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+            pointer-events: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            pointer-events: auto;
+        }
+
+        .header-visible {
+            transform: translateY(0);
+            pointer-events: all;
+
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img class="logo_img" alt="Torganic logo" height="40"
+                    src="https://storage.googleapis.com/a1aa/image/duC-Og-0ssRMLAyAMoQ0YE47BzhLX5Bdw-ogFOSgiAI.jpg"
+                    width="40" />
+                <span class="logo_name">
+                    Torganic
+                </span>
+            </div>
+            <nav class="nav">
+                <a class="nav_item" href="#">Home</a>
+                <a class="nav_item" href="#">Flash Sale</a>
+                <a class="nav_item" href="#">Blog</a>
+                <a class="nav_item" href="#">Shop</a>
+                <a class="nav_item" href="#">Contact</a>
+            </nav>
+            <div class="icons">
+                <!-- <a class="nav_icon" href="#"> -->
+
+                <div class="search">
+                    <div class="search__container">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Tìm sản phẩm..." onclick="showContent()">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="hidden-content" id="hiddenContent">
+                            <div class="title">
+                                <i class="fas fa-fire"></i>
+                                <span>TÌM KIẾM NHIỀU NHẤT</span>
+                            </div>
+                            <div class="tags">
+                                <span>Áo sơ mi</span>
+                                <span>Áo khoác</span>
+                                <span>Quần</span>
+                                <span>Váy</span>
+                                <span>Jumpsuit</span>
+                                <span>Đầm</span>
+                                <span>Đồ bộ</span>
+                                <span>Phụ kiện</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- </a> -->
+                <a class="nav_icon" href="#">
+                    <i class="fas fa-heart"></i>
+                </a>
+                <a class="nav_icon" href="/login/register.html">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a class="nav_icon" href="/shoppingCart/cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+
+            </div>
+        </div>
+    </header>
+
+
+
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.querySelector(".search-bar input");
+        const hiddenContent = document.getElementById("hiddenContent");
+
+        searchInput.addEventListener("focus", function () {
+        hiddenContent.style.display = "block";
+        setTimeout(() => {
+            hiddenContent.style.maxHeight = hiddenContent.scrollHeight + "px";
+            hiddenContent.style.opacity = "1";
+        }, 10);
+    });
+
+        document.addEventListener("click", function (event) {
+            if (!hiddenContent.contains(event.target) && !searchInput.contains(event.target)) {
+                hiddenContent.style.maxHeight = "0";
+                hiddenContent.style.opacity = "0";
+                setTimeout(() => {
+                    hiddenContent.style.display = "none";
+                }, 300);
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector(".header");
+    let lastScrollY = window.scrollY;
+    let isFixed = false;
+
+    window.addEventListener("scroll", function () {
+        let currentScrollY = window.scrollY;
+
+        if (currentScrollY > 250) {
+            if (!isFixed) {
+                header.classList.add("header-fixed"); // Cố định header
+                setTimeout(() => {
+                    header.classList.add("header-visible"); // Trượt xuống
+                }, 10);
+                isFixed = true;
+            }
+        } else {
+            header.classList.remove("header-visible");
+            setTimeout(() => {
+                header.classList.remove("header-fixed"); // Quay về trạng thái ban đầu
+            }, 400);
+            isFixed = false;
+        }
+
+        lastScrollY = currentScrollY;
+    });
+});
+
+
+
+
+</script>
+
+
+</html>
