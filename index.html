@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-
-
 <body>
     <header class="header">
         <div class="container">
@@ -31,8 +29,7 @@
                 <a class="nav_item" href="#">Contact</a>
             </nav>
             <div class="icons">
-                <!-- <a class="nav_icon" href="#"> -->
-
+               
                 <div class="search">
                     <div class="search__container">
                         <div class="search-bar">
@@ -67,8 +64,26 @@
                 <a class="nav_icon" href="/shoppingCart/cart.html">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-
+                
+                    <label for="nav__mobile__input" class="nav__bars-btn"><i class="fas fa-bars"></i></label>
+                    <input type="checkbox" class="nav__input" id="nav__mobile__input">
+                    <label for="nav__mobile__input" class="nav__overlay"></label>
+                    <nav class="nav__mobile">
+                        <div class="nav__mobile__header">
+                        <label for="nav__mobile__input" class="nav__mobile__close">
+                            <i class="fas fa-times"></i>
+                        </label>
+                        </div>
+                        <ul class="nav__mobile__list">
+                            <li class="nav__mobile__link">Trang chủ</li>
+                            <li class="nav__mobile__link">Sản phẩm</li>
+                            <li class="nav__mobile__link">Bộ sưu tập</li>
+                            <li class="nav__mobile__link">Trợ giúp</li>
+                            <li class="nav__mobile__link">Đăng xuất</li>
+                        </ul>
+               
             </div>
+           
         </div>
     </header>
     <main class="main">
@@ -355,20 +370,27 @@
             }
         });
     });
+  
+
+
     document.addEventListener("DOMContentLoaded", function () {
         const header = document.querySelector(".header");
         let lastScrollY = window.scrollY;
         let ticking = false;
+      
 
         function updateHeader() {
             let currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY && currentScrollY > 250) {
+            if (currentScrollY > lastScrollY && currentScrollY > 230) {
+                
                 header.classList.add("header-fixed");
                 header.classList.remove("header-visible");
+               
             } else {
                 header.classList.add("header-visible");
                 header.classList.remove("header-fixed");
             }
+           
             lastScrollY = currentScrollY;
             ticking = false;
         }

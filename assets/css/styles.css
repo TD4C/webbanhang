@@ -121,6 +121,14 @@ padding: 16px 0; */
     border-radius: 8px;
     max-width: 100%;
 }
+@media (max-width: 480px) {
+  .search{
+    display: none;
+  }
+  .nav_icon{
+    display: none;
+  }
+}
 
 @media (min-width: 768px) {
     .nav {
@@ -519,7 +527,7 @@ border-radius: 4px;
     position: fixed;
     top: 0;
     width: 100%;
-    transform: translateY(0);
+    /* transform: translateY(0); */
     opacity: 1;
     transition: transform 0.6s ease-out, opacity 0.6s ease-out;
     pointer-events: none;
@@ -528,7 +536,7 @@ border-radius: 4px;
 }
 
 .header-visible {
-    transform: translateY(0);
+    /* transform: translateY(0); */
     pointer-events: all;
 
 }
@@ -558,3 +566,106 @@ border-radius: 4px;
     opacity: 1;
     visibility: visible;
 }
+.nav__bars-btn{
+    display: none;
+}
+.nav__overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    animation: fadein linear 0.4s;
+}
+.nav__mobile{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 100%;
+    background-color: #fff;
+    transform: translateX(-100%);
+    transition: transform linear 0.2s;
+}
+.nav__mobile__list{
+    margin-top: 25px;
+    list-style: none;
+   padding-left: 0;
+   text-align: center;
+   
+}
+.nav__mobile__link{
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 10px 0;
+    font-size: 1.8rem;
+}
+.nav__mobile__header{
+    border: #777 solid;
+    height: 50px;
+    position: relative;
+}
+.nav__mobile__close{
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    top: 17px;
+    right: 15px;
+    font-size: 20px;
+}
+.nav__input:checked ~.nav__overlay{
+    display: block;
+}
+.nav__input{
+    display: none;
+}
+.nav__input:checked ~ .nav__mobile{
+    transform: translateX(0);
+}
+ @keyframes fadein {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+ }
+ @media(max-width: 480px){
+    .nav__bars-btn{
+        display: block;
+        padding: 10px 0 5px 0;
+        font-size: 21px;
+    }
+ .pro_title{
+    display: none;
+ } 
+ .btn_viewall{
+    display: none;
+
+}
+.logo {
+    order: 2; /* Đẩy xuống sau */
+}
+
+.nav__bars-btn {
+    order: 1; /* Đẩy lên trước */
+}
+.header{
+    padding-left: 19px;
+}
+.header-fixed {
+    position: fixed;
+    top: 0;
+    width: 88%;
+    /* transform: translateY(0); */
+    opacity: 1;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
+}
+ }
