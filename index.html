@@ -74,20 +74,36 @@
                             <i class="fas fa-times"></i>
                         </label>
                         </div>
-                        <ul class="nav__mobile__list">
-                            <li class="nav__mobile__link">Trang chủ</li>
-                            <li class="nav__mobile__link">Sản phẩm</li>
-                            <li class="nav__mobile__link">Bộ sưu tập</li>
-                            <li class="nav__mobile__link">Trợ giúp</li>
-                            <li class="nav__mobile__link">Đăng xuất</li>
-                        </ul>
-               
+                       <div class="contain__mobile">
+                        <div class="mobile__list">
+                            <a href="#" class="mobile">
+                                <i class="fas fa-plus mobile__icon"></i>
+                                <span>New Chat</span>
+                            </a>
+                            <a href="#" class="mobile">
+                                <i class="fas fa-code mobile__icon"></i>
+                                <span>Image To App</span>
+                            </a>
+                            <a href="#" class="mobile">
+                                <i class="fas fa-bookmark mobile__icon"></i>
+                                <span>Bookmarks</span>
+                            </a>
+                            <a href="#" class="mobile">
+                                <i class="fas fa-history mobile__icon"></i>
+                                <span>History</span>
+                            </a>
+                        </div>
+                        <div class="change__icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                       </div>
+                </nav>
             </div>
            
         </div>
     </header>
     <main class="main">
-        <div class="container">
+        <div class="mobile__list">
             <div class="herosection">
                 <div>
                     <h1 class="herosection_h1">
@@ -344,7 +360,30 @@
     <button id="scrollToTop" class="scroll-top">
         <i class="fas fa-chevron-up"></i>
     </button>
-
+    <div class="content">
+    </div>
+    <div class="footer">
+        <div class="footer-item active">
+            <i class="fas fa-home"></i>
+            <span>Trang chủ</span>
+        </div>
+        <div class="footer-item">
+            <i class="fas fa-th-large"></i>
+            <span>Danh mục</span>
+        </div>
+        <div class="footer-item">
+            <i class="fas fa-store"></i>
+            <span>Cửa hàng</span>
+        </div>
+        <div class="footer-item">
+            <i class="fas fa-crown"></i>
+            <span>Membership</span>
+        </div>
+        <div class="footer-item">
+            <i class="fas fa-user"></i>
+            <span>Tài khoản</span>
+        </div>
+    </div>
 </body>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -422,6 +461,24 @@
             window.location.href = url;
         });
     });
+});
+// Lấy đối tượng biểu tượng và body
+const changeIcon = document.querySelector('.change__icon');
+const body = document.body;
+
+// Kiểm tra và thay đổi chế độ khi click
+changeIcon.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    
+    // Chuyển đổi icon tùy thuộc vào chế độ
+    const icon = changeIcon.querySelector('i');
+    if (body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    } else {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
 });
 
 
